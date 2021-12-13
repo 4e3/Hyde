@@ -15,9 +15,7 @@ module.exports = {
       return message.channel.send(`mention someone for this to actually work ${lol}`)
     }
 
-    if(message.mentions.users.first().bot) {
-      return message.channel.send("no")
-    }
+  
 
     if(target.id = '572545821849944076') {
       return message.channel.send("not yours")
