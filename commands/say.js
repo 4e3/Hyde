@@ -8,9 +8,16 @@ module.exports = {
   permissions: [],
    
   execute: async (client, message, args, cmd, Discord) => {
-    if (message.author.id !== "572545821849944076") return; // if the message content includes @everyone OR ( || means or in js) @here, stop running the code. 
+  if (!'572545821849944076'.includes(message.author.id)) {
+    message.delete()
+    var evalnoEmbed = new Discord.MessageEmbed()
+ .setColor('RED')
+ .setDescription('Due to security issues, say can be only used by developers.')
+
+ message.channel.send(evalnoEmbed).then(a => a.delete({ timeout: 5000 }))
+    
+  } else {// if the message content includes @everyone OR ( || means or in js) @here, stop running the code. 
  
-        if(!message.member.permissions.has('MANAGE_MESSAGES')) return // if the user running the command doesn't have permissions to mannage messages, stop running the code. ! means no or doesn't in js.
 
         let textChannel = message.mentions.channels.first() // the first channel that you tag
         if(!args[0]) return message.channel.send('Provide a channel for me to send the message in!'); // args are words or numbers after the command. The first word is args[0], and then args[1], and so on and so on.
@@ -20,6 +27,6 @@ module.exports = {
 
             msg = args.slice(1).join(" "); // everything including and after args[1]
             textChannel.send(msg) // sending the message in the text channel provided
-
-  },
+  }
+  }
 };
