@@ -6,6 +6,10 @@ const quick = require('quick.db');
 
 module.exports = async (Discord, client, message) => {
 
+  client.on('guildCreate', guild => {
+  guild.systemChannel.send('https://i.imgur.com/z3wU2tF.png').catch(x => x.return);
+})
+
   const botdev = client.emojis.cache.find(emoji => emoji.name === "botdev");
   prefix = process.env.PREFIX
 
@@ -108,6 +112,24 @@ module.exports = async (Discord, client, message) => {
       //.catch(console.error);
     }
   }
+
+  client.on("unhandledRejection", (reason, p) => {
+    console.log(" [antiCrash] :: Unhandled Rejection/Catch");
+    // console.log(reason, p);
+});
+client.on("uncaughtException", (err, origin) => {
+    console.log(" [antiCrash] :: Uncaught Exception/Catch");
+    // console.log(err, origin);
+});
+client.on("uncaughtExceptionMonitor", (err, origin) => {
+    console.log(" [antiCrash] :: Uncaught Exception/Catch (MONITOR)");
+    // console.log(err, origin);
+});
+client.on("multipleResolves", (type, promise, reason) => {
+    console.log(" [antiCrash] :: Multiple Resolves");
+    // console.log(type, promise, reason);
+});
+
 
 
 

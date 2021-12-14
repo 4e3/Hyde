@@ -23,5 +23,17 @@
     "util": "^0.12.4",
     "weather-js": "^2.0.0",
     "yt-search": "^2.10.2"
-  }
+  },
+  "devDependencies": {
+    "node": "^16.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4e3/Hyde.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/4e3/Hyde/issues"
+  },
+  "homepage": "https://github.com/4e3/Hyde#readme"
 }

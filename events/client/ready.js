@@ -1,3 +1,3 @@
-module.exports = (client, message, args, Discord) => {
+module.exports = () => {
   console.log('Your Bot is now Online.')
 }
