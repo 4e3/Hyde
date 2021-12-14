@@ -51,6 +51,7 @@ module.exports = {
 
             await user.send(reminderdm)
            }catch(err){
+             message.channel.send(reminderdm)
 
            } 
            

@@ -16,10 +16,6 @@ module.exports = {
     }
 
   
-
-    if(target.id = '572545821849944076') {
-      return message.channel.send("not yours")
-    }
       
       var avatarEmbed = new Discord.MessageEmbed()
  .setColor('RANDOM')
