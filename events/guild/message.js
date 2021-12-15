@@ -1,3 +1,5 @@
+
+
 const ms = require('ms')
 
 const cooldowns = new Map();
@@ -5,6 +7,10 @@ const cooldowns = new Map();
 const quick = require('quick.db');
 
 module.exports = async (Discord, client, message) => {
+
+  client.on("rateLimit", () => {
+    console.log(`Ratelimited in ${message.guild.name}`)    
+    });
 
   client.on('guildCreate', guild => {
   guild.systemChannel.send('https://i.imgur.com/z3wU2tF.png').catch(x => x.return);
