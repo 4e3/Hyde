@@ -3,6 +3,7 @@ const { Client, Message, MessageEmbed } = require("discord.js");
 module.exports = {
   name: "say",
   cooldown: 0,
+  usage: "<word>",
   aliases: ['speak'],
   description: "bro",
   permissions: [],

@@ -1,6 +1,7 @@
 module.exports = {
     name: 'avatar',
     cooldown: 5,
+    usage: "@user",
     aliases: ["profile"],
     description: 'sadasdBot commandssadsa',
     permissions: [],

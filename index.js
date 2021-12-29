@@ -1,14 +1,16 @@
 const Discord = require('discord.js');
 require("dotenv").config();
-const client = new Discord.Client
+const client = new Discord.Client();
 const mongoose = require("mongoose")
 const fs = require('fs');
+const disbut = require("discord-buttons")
+disbut(client);
 
 
 
 
 var http = require('http');
- http.createServer(function (req, res) { res.write('omg actually working loop??!?!?/!1'); res.end(); }).listen(8080);
+ http.createServer(function (req, res) { res.write('Hyde is online'); res.end(); }).listen(8080);
 
 
 

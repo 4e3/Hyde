@@ -4,6 +4,7 @@ const db = require("quick.db")
 module.exports = {
     name : 'scramble',
     cooldown: 3,
+    usage: "",
     aliases: [],
     description: 'Attempt to unscramble the given scrambled word',
     permissions: [],

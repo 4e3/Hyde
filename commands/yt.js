@@ -4,6 +4,7 @@ module.exports = {
     name: 'yt',
     cooldown: 5,
     aliases: [],
+    usage: "<video>",
     description: "Search on YouTube",
     permissions: [],
     async execute(client, message, args, cmd, Discord) {

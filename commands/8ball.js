@@ -4,11 +4,12 @@ module.exports = {
   name: '8ball',
   cooldown: 10,
   aliases: [],
+  usage: "<question>",
   description: 'Asks a question and let the bot determine your fate :sparkler:',
   permissions: [],
   async execute(client, message, args, cmd, Discord) {
     const okoembed = new MessageEmbed() // create embed 
-        .setAuthor(':8ball: The 8 Ball says...')
+        .setAuthor('The 8 Ball says...')
         .setColor('RED')
         .addField('Error:', 'Ask a full question!');
     if (!args[0]) return message.channel.send(okoembed); // return if no question is commenced
@@ -19,7 +20,7 @@ module.exports = {
     // check permissions for embed
     if (message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) {
       const embed = new MessageEmbed() // create embed 
-        .setAuthor(':8ball: The 8 Ball says...')
+        .setAuthor('The 8 Ball says...')
         .setColor('ORANGE').addField('Question:', question)
         .addField('Answer:', replies[result]);
       await message.channel.send(embed); // send embed message

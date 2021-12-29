@@ -6,7 +6,8 @@ const Discord = require('discord.js')
 module.exports = {
   name: 'eval',
   cooldown: 0,
-  description: 'okokokoko',
+  description: 'Evaluate code',
+  usage: "<evaluation>",
   aliases: ["e"],
   permissions: [],
 

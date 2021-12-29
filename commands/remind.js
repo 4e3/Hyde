@@ -4,6 +4,7 @@ module.exports = {
     name: "remind",
     cooldown: 5,
     aliases: [],
+    usage: "<time> <reminder>",
     description: "reminder",
     permissions: [],
     async execute(client,  message, args, cmd, Discord) {

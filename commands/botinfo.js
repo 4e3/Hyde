@@ -2,7 +2,8 @@ module.exports = {
     name: 'botinfo',
     cooldown: 5,
     aliases: [],
-    description: 'sadasdBot commandssadsa',
+    usage: "",
+    description: 'Info for the bot',
     permissions: [],
 
     execute(client, message, args, cmd, Discord) {

@@ -5,6 +5,7 @@ module.exports = {
   name: 'ping',
   cooldown: 5,
   aliases: [],
+  usage: "",
   description: 'Get bot ping.',
   permissions: [],
   async execute(client, message, args, cmd, Discord) {

@@ -2,6 +2,7 @@ module.exports = {
     name : 'emojify',
     cooldown: 10,
     aliases: [],
+    usage: "<sentence>",
     description : 'Make any sentence out of emoji\'s',
     permissions: [],
 

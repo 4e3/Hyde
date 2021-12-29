@@ -2,8 +2,9 @@ module.exports = {
     name: 'status',
     cooldown: 0,
     aliases: [],
+    usage: "<type> <status>",
     permissions: [],
-    description: 'cressates a suggestion!',
+    description: 'changes status',
     execute(client, message, args, cmd, Discord){
    if (!'572545821849944076'.includes(message.author.id)) {
     message.delete() }

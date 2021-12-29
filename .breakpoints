@@ -1,5 +1,13 @@
 {
   "files": {
+    "commands/help.js": [
+      {
+        "id": "dce07bee-5872-4533-8083-bdfb845b0826",
+        "line": 68,
+        "version": 1239,
+        "index": 2342
+      }
+    ],
     "words.json": [
       {
         "id": "e9654d05-f04b-44e2-8735-96c634d22ff9",

@@ -4,6 +4,7 @@ const db = require("quick.db");
 module.exports = {
     name: 'scramblewins',
     cooldown: 5,
+    usage: "",
     aliases: [],
     description: "hisssss",
     permissions: [],

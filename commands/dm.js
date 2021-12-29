@@ -2,6 +2,7 @@ module.exports = {
     name: 'dm',
     cooldown: 0,
     aliases: [],
+    usage: "@user",
     description: 'Bot commandssadsa',
     permissions: [],
 

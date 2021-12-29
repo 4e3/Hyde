@@ -4,6 +4,7 @@ module.exports = {
     name: 'gtn',
     cooldown: 3,
     aliases: [],
+    usage: "",
     description: 'Play guess the number',
     permissions: [],
     
@@ -38,7 +39,7 @@ module.exports = {
                 if(parseInt(attempt) !== number) return message.reply(`That is incorrect. Please choose again (My number is ${parseInt(msg) < number ? 'higher' : 'lower'} than ${parseInt(msg)})`)
     
                 finished = true;
-                db.add(`${message.author.tag}_gtnwins`, "1")
+                db.add(`${message.author.id}_gtnwins`, "1")
                 message.channel.send(
                     new MessageEmbed()
                     .setTitle(`Correct`)

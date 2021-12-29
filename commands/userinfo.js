@@ -3,6 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
  name: "userinfo",
  cooldown: 5,
+ usage: "<@user",
  aliases: [],
  description: "Userinfo of mentioned user/id or if no one mentioned then yours",
  permissions: [],

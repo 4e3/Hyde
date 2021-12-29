@@ -1,6 +1,7 @@
 module.exports = {
     name: 'uptime',
     cooldown: 5,
+    usage: "",
     aliases: [],
     description: 'sadasclears messages!',
     permissions: [],

@@ -2,6 +2,7 @@ module.exports = {
     name: 'rps',
     aliases: [],
     description: 'Play RPS with me!',
+    usage: "<choice>",
     cooldown: 5,
     permissions: [],
     execute (client, message, args){
