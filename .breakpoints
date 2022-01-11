@@ -3,9 +3,17 @@
     "commands/help.js": [
       {
         "id": "dce07bee-5872-4533-8083-bdfb845b0826",
-        "line": 68,
-        "version": 1239,
-        "index": 2342
+        "line": 69,
+        "version": 1295,
+        "index": 2346
+      }
+    ],
+    "events/guild/message.js": [
+      {
+        "id": "3b01d3a0-6e43-466a-a7c8-cb98b2f9fa58",
+        "line": 11,
+        "version": 1772,
+        "index": 184
       }
     ],
     "words.json": [

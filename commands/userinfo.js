@@ -4,7 +4,7 @@ module.exports = {
  name: "userinfo",
  cooldown: 5,
  usage: "<@user",
- aliases: [],
+ aliases: ["ui"],
  description: "Userinfo of mentioned user/id or if no one mentioned then yours",
  permissions: [],
 execute: async(client, message, args, cmd, Discord) => {

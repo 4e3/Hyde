@@ -4,7 +4,7 @@ const ms = require('ms')
 
 const cooldowns = new Map();
 
-const quick = require('quick.db');
+const db = require('quick.db');
 
 module.exports = async (Discord, client, message) => {
 
@@ -15,6 +15,12 @@ module.exports = async (Discord, client, message) => {
 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+  let blacklisted = db.get(`blacklist_${message.author.id}`) //here the bot is searching if the person typing  is blacklisted
+  let m = new Discord.MessageEmbed()
+  .setTitle("Blacklisted")
+  .setDescription("You have been blacklisted from using Hyde.")
+
+    if(blacklisted === 1) return message.channel.send(m);
 
 
   const args = message.content.slice(prefix.length).split(/ +/);

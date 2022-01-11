@@ -6,8 +6,14 @@ module.exports = {
     permissions: [],
     description: 'changes status',
     execute(client, message, args, cmd, Discord){
-   if (!'572545821849944076'.includes(message.author.id)) {
-    message.delete() }
+  if (!'572545821849944076'.includes(message.author.id)) {
+    message.delete()
+    var evaslnoEmbed = new Discord.MessageEmbed()
+ .setColor('RED')
+ .setDescription('Due to security issues, status can be only used by developers.')
+
+ message.channel.send(evaslnoEmbed).then(a => a.delete({ timeout: 5000 })) //add your id without quotes
+        }
 
 if (args[0] === "playing"){
     types = 0

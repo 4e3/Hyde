@@ -20,12 +20,13 @@ module.exports = {
             .setTitle('Here\'s a list of all my commands:')
             .addField("**Developer:**", "• rev ❄️#8182")
             .addFields(
-               { name: '**Commands:**', value: commands.map(command => command.name).join(', ') },
+               { name: '**Commands:**', value: commands.map(command => command.name).join(', ')},
                { name: '\u200B', value: `For help on a specific command send: \`${prefix}help [command name]\``}
             )
 
          return message.channel.send(embed)
        }
+    
 
     const name = args[0].toLowerCase();
 		const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
