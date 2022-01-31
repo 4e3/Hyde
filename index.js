@@ -8,9 +8,9 @@ disbut(client);
 
 
 
-
 var http = require('http');
  http.createServer(function (req, res) { res.write('Hyde is online'); res.end(); }).listen(8080);
+
 
 
 
@@ -36,6 +36,10 @@ mongoose
 .catch((err) => {
   console.log(err);
 })
+
+client.on('error', (e) => console.error(e));
+client.on('warning', (e) => console.warn(e));
+client.on('debug', (e) => console.info(e));
 
 
 

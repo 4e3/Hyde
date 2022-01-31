@@ -1,35 +1,89 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
- name: "userinfo",
- cooldown: 5,
- usage: "<@user",
- aliases: ["ui"],
- description: "Userinfo of mentioned user/id or if no one mentioned then yours",
- permissions: [],
-execute: async(client, message, args, cmd, Discord) => {
-      const embed = new Discord.MessageEmbed()
-const moment = require('moment');
+	name: 'userinfo',
+	aliases: ["ui"],
+  cooldown: 3,
+  description: "self explanatory",
+  usage: "<@user>",
+  permissions: [],
+	execute: async (client, message, args) => {
+		const user =			message.mentions.members.first()
+			|| message.guild.members.cache.get(args[0])
+			|| message.member;
 
-const member =  message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-if (!member) 
-     return message.channel.send('Please mention the user for the userinfo..');
+		let status;
+    const onlineEmoji = client.emojis.cache.get('937094827886145546')
+    const dndEmoji = client.emojis.cache.get('937094827802259466')
+    const idleEmoji = client.emojis.cache.get('937094827730931752')
+    const offlineEmoji = client.emojis.cache.get('937094827542204467')
+		switch (user.presence.status) {
+		case 'online':
+			status = `${onlineEmoji} Online`;
+			break;
+		case 'dnd':
+			status = `${dndEmoji} Do Not Disturb`;
+			break;
+		case 'idle':
+			status = `${idleEmoji} Idle`;
+			break;
+		case 'offline':
+			status = `${offlineEmoji} Offline`;
+			break;
+		default:
+			status = 'Unknown';
+		}
 
+		const embed = new MessageEmbed()
+			.setTitle(`${user.user.username} stats`)
+			.setColor('#f3f3f3')
+			.setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
+			.addFields(
+				{
+					name: 'Name: ',
+					value: user.user.username,
+					inline: true,
+				},
+				{
+					name: 'Discriminator: ',
+					value: `#${user.user.discriminator}`,
+					inline: true,
+				},
+				{
+					name: 'ID: ',
+					value: user.user.id,
+				},
+				{
+					name: 'Current Status: ',
+					value: status,
+					inline: true,
+				},
+				{
+					name: 'Activity: ',
+					value: user.presence.activities[0] ? user.presence.activities[0].name : 'User isn\'t playing a game!',
+					inline: true,
+				},
+				{
+					name: 'Avatar link: ',
+					value: `[Click Here](${user.user.displayAvatarURL()})`,
+				},
+				{
+					name: 'Creation Date: ',
+					value: user.user.createdAt.toLocaleDateString('en-us'),
+					inline: true,
+				},
+				{
+					name: 'Joined Date: ',
+					value: user.joinedAt.toLocaleDateString('en-us'),
+					inline: true,
+				},
+				{
+					name: 'User Roles: ',
+					value: user.roles.cache.map((role) => role.toString()).join(' ,'),
+					inline: true,
+				},
+			);
 
-   const uiembed = new Discord.MessageEmbed() 
-     .setTitle(`${member.displayName}'s Information`)
-     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-     .addField('User', member, true)
-     .addField('Discriminator', `\`#${member.user.discriminator}\``, true)
-     .addField('ID', `\`${member.id}\``, true)
-     .addField('Bot', `\`${member.user.bot}\``, true)
-     .addField('Color Role', member.roles.color || '`None`', true)
-     .addField('Highest Role', member.roles.highest, true)
-     .addField('Joined server on', `\`${moment(member.joinedAt).format('MMM DD YYYY')}\``, true)
-     .addField('Joined Discord on', `\`${moment(member.user.createdAt).format('MMM DD YYYY')}\``, true)
-     .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
-     .setTimestamp()
-     .setColor(member.displayHexColor);
-   message.channel.send(uiembed);
-   }
- }
+		return message.channel.send(embed);
+	},
+};
