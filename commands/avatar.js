@@ -2,7 +2,7 @@ module.exports = {
     name: 'avatar',
     cooldown: 5,
     usage: "@user",
-    aliases: ["profile"],
+    aliases: ["profile", "pfp"],
     description: 'sadasdBot commandssadsa',
     permissions: [],
 
@@ -10,7 +10,7 @@ module.exports = {
 
       const lol = client.emojis.cache.find(emoji => emoji.name === "bruhimagine");
 
-      const target = message.mentions.users.first();
+      const target = message.mentions.members.first()
 
         if(!target) {
       return message.channel.send(`mention someone for this to actually work ${lol}`)

@@ -8,10 +8,16 @@ module.exports = {
   permissions: [],
   cooldown: 5,
   execute: async (client, message, args) => {
-    const target = message.mentions.users.first();
+    const target = message.mentions.members.first()
+			|| message.guild.members.cache.get(args[0])
+			|| message.member;
 
     if(!target) {
       return message.channel.send(`mention someone for this to actually work`)
+    }
+
+    if(target.id == "917838767719583836"){
+    return message.reply("no")
     }
 
     

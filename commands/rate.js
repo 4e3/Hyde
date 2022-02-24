@@ -32,9 +32,14 @@ module.exports = {
     ][Math.floor(rate / 10)];
 
     if ([
-      'rev', '572545821849944076', 'hermy', 'freddy',
+      'rev', '572545821849944076'
     ].includes(raw.toLowerCase())){
       rate = 100;
+    };
+if ([
+      'astral', 'hermy'
+    ].includes(raw.toLowerCase())){
+      rate = 1;
     };
 
     return message.channel.send(`${emoji(rate)} (**${rate}**) %`)

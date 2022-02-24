@@ -8,7 +8,7 @@ module.exports = {
   usage: "<@user>",
   permissions: [],
 	execute: async (client, message, args) => {
-		const user =			message.mentions.members.first()
+		const user = message.mentions.members.first()
 			|| message.guild.members.cache.get(args[0])
 			|| message.member;
 
@@ -35,7 +35,7 @@ module.exports = {
 		}
 
 		const embed = new MessageEmbed()
-			.setTitle(`${user.user.username} stats`)
+			.setTitle(`Who is ${user.user.username}?`)
 			.setColor('#f3f3f3')
 			.setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
 			.addFields(

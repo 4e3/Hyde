@@ -1,5 +1,4 @@
 const Discord = require("discord.js")
-const prefix = process.env.PREFIX
 const fs = require("fs");
 
 
@@ -18,10 +17,9 @@ module.exports = {
 
          const embed = new Discord.MessageEmbed()
             .setTitle('Here\'s a list of all my commands:')
-            .addField("**Developer:**", "• rev ❄️#8182")
+            .addField("**Developer:**", "• rev#8182")
             .addFields(
-               { name: '**Commands:**', value: commands.map(command => command.name).join(', ')},
-               { name: '\u200B', value: `For help on a specific command send: \`${prefix}help [command name]\``}
+               { name: '**Commands:**', value: commands.map(command => command.name).join(', ')}
             )
 
          return message.channel.send(embed)

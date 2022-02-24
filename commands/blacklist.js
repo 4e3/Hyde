@@ -1,5 +1,6 @@
 const db = require("quick.db");
 const { MessageEmbed } = require('discord.js');//require the packages
+const Discord = require("discord.js")
 
 module.exports = {
     name: 'blacklist',

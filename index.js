@@ -2,9 +2,7 @@ const Discord = require('discord.js');
 require("dotenv").config();
 const client = new Discord.Client();
 const mongoose = require("mongoose")
-const fs = require('fs');
-const disbut = require("discord-buttons")
-disbut(client);
+const fs = require("fs")
 
 
 
@@ -34,12 +32,9 @@ mongoose
   console.log("Connected to MongoDB")
 })
 .catch((err) => {
-  console.log(err);
+  console.log(err)
 })
 
-client.on('error', (e) => console.error(e));
-client.on('warning', (e) => console.warn(e));
-client.on('debug', (e) => console.info(e));
 
 
 

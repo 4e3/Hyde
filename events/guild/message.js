@@ -2,22 +2,33 @@ const Discord = require("discord.js")
 
 const ms = require('ms')
 
+const mongodb = require("mongoose")
+
+const prefix = process.env.PREFIX
+
 const cooldowns = new Map();
 
 const db = require('quick.db');
 
 module.exports = async (Discord, client, message) => {
 
+  
+
 
   const botdev = client.emojis.cache.find(emoji => emoji.name === "botdev");
-  prefix = process.env.PREFIX
 
 
+    
   if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  if(message.author.bot) return;
+  
+
 
   let blacklisted = db.get(`blacklist_${message.author.id}`) //here the bot is searching if the person typing  is blacklisted
   let m = new Discord.MessageEmbed()
   .setTitle("Blacklisted")
+  .setColor("WHITE")
   .setDescription("You have been blacklisted from using Hyde.")
 
     if(blacklisted === 1) return message.channel.send(m);
@@ -48,7 +59,7 @@ module.exports = async (Discord, client, message) => {
 
       var coolEmbed = new Discord.MessageEmbed()
         .setTitle('Cooldown')
-        .setColor("RANDOM")
+        .setColor("WHITE")
         .setDescription(`Please wait ${time_left.toFixed(1)} more seconds before using ${command.name}`)
 
       return message.delete().then(message.reply(coolEmbed).then(a => a.delete({ timeout: 5000 })))
@@ -124,4 +135,5 @@ module.exports = async (Discord, client, message) => {
 
 
   if (command) command.execute(client, message, args, cmd, Discord);
+
 }

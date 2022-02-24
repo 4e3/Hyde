@@ -2,7 +2,7 @@ const axios = require('axios');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-	name: 'corona',
+	name: 'covid',
   aliases: ["covidstats"],
   cooldown: 3,
 	description: "Check covid stats",
