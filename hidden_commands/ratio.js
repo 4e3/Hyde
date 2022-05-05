@@ -9,8 +9,6 @@ module.exports = {
   cooldown: 5,
   execute: async (client, message, args) => {
     const target = message.mentions.members.first()
-			|| message.guild.members.cache.get(args[0])
-			|| message.member;
 
     if(!target) {
       return message.channel.send(`mention someone for this to actually work`)

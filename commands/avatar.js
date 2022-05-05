@@ -8,6 +8,9 @@ module.exports = {
 
     execute(client, message, args, cmd, Discord) {
 
+    if (message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) {
+      
+
       const lol = client.emojis.cache.find(emoji => emoji.name === "bruhimagine");
 
       const target = message.mentions.members.first()
@@ -20,8 +23,11 @@ module.exports = {
       
       var avatarEmbed = new Discord.MessageEmbed()
  .setColor('RANDOM')
-.setImage(target.displayAvatarURL({dynamic: true}))
+.setImage(target.user.displayAvatarURL({dynamic: true}))
 
  message.channel.send(avatarEmbed)
+    } else{
+      message.channel.send(target.user.displayAvatarURL({dynamic: true}))
+    }
      }
 }

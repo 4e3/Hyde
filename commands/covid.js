@@ -9,6 +9,8 @@ module.exports = {
   usage: "<optional country>",
   permissions: [],
 	execute: async (client, message, args) => {
+
+    
 		const baseUrl = 'https://corona.lmao.ninja/v2';
 
 		let url; let response; let
@@ -70,5 +72,7 @@ module.exports = {
 			);
 
 		return message.channel.send(embed);
+
+    
 	},
 };

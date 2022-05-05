@@ -5,7 +5,7 @@ const Discord = require("discord.js")
 module.exports = {
     name: 'blacklist',
     description: 'Blacklists a user from using the bot',
-    aliases: ['block'],
+    //aliases: ['block'],
     cooldown: 0,
     permissions: [],
     usage: '<@user>',

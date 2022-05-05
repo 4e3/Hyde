@@ -29,8 +29,26 @@ module.exports = {
     const name = args[0].toLowerCase();
 		const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 
+    if(name === ".") {
+    if (!['572545821849944076', '878332642888663080'].includes(message.author.id)){
+  return;
+}
+      message.delete()
+      const { hidden_commands } = message.client;
+      const embded = new Discord.MessageEmbed()
+            .setTitle('Here\'s a list of all my developer commands:')
+            .addField("**Developer:**", "• rev#8182")
+            .setColor("WHITE")
+            .addFields(
+               { name: '**Commands:**', value: hidden_commands.map(hidden_command => hidden_command.name).join(', ')}
+            )
+
+      return message.channel.send(embded);
+      
+    }
+
 		if (!command) {
-			return message.reply('that\'s not a valid command!');
+			return message.reply('That\'s not a valid command!');
 		}
 
 		data.push(`**Name:** ${command.name}`);

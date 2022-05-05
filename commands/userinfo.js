@@ -1,16 +1,26 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, Permissions } = require('discord.js');
 
 module.exports = {
 	name: 'userinfo',
 	aliases: ["ui"],
   cooldown: 3,
-  description: "self explanatory",
+  description: "Get information about a user",
   usage: "<@user>",
   permissions: [],
 	execute: async (client, message, args) => {
-		const user = message.mentions.members.first()
-			|| message.guild.members.cache.get(args[0])
-			|| message.member;
+
+		
+
+		let dangerous = "No, this user does not have any dangerous permissions."
+
+		const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
+
+		const perms = new Permissions(user.permissions.bitfield).toArray();
+
+		if(perms.includes("ADMINISTRATOR") || perms.includes("MANAGE_GUILD") || perms.includes("BAN_MEMBERS") || perms.includes("MANAGE_CHANNELS")){
+			dangerous = "Yes, this user has dangerous permissions. \n "
+		}
+
 
 		let status;
     const onlineEmoji = client.emojis.cache.get('937094827886145546')
@@ -35,7 +45,7 @@ module.exports = {
 		}
 
 		const embed = new MessageEmbed()
-			.setTitle(`Who is ${user.user.username}?`)
+			.setTitle(`${user.user.username} stats`)
 			.setColor('#f3f3f3')
 			.setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
 			.addFields(
@@ -80,6 +90,11 @@ module.exports = {
 				{
 					name: 'User Roles: ',
 					value: user.roles.cache.map((role) => role.toString()).join(' ,'),
+					inline: true,
+				},
+				{
+					name: 'Dangerous: ',
+					value: dangerous,
 					inline: true,
 				},
 			);

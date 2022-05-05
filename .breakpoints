@@ -3,16 +3,16 @@
     "commands/help.js": [
       {
         "id": "dce07bee-5872-4533-8083-bdfb845b0826",
-        "line": 67,
-        "version": 1331,
-        "index": 2195
+        "line": 85,
+        "version": 1505,
+        "index": 2804
       }
     ],
     "events/guild/message.js": [
       {
         "id": "3b01d3a0-6e43-466a-a7c8-cb98b2f9fa58",
         "line": 1,
-        "version": 2793,
+        "version": 2802,
         "index": 0
       }
     ],

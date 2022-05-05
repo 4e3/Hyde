@@ -9,6 +9,8 @@ module.exports = {
     permissions: [],
     
     execute : async(client, message, args, cmd, Discord) => {
+
+      if(message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) {
         let number = Math.ceil(Math.random() * 10000);
         let finished = false;
 
@@ -54,5 +56,14 @@ module.exports = {
         collector.on('end', async(collected) => {
             if(finished == false) return message.reply(`You timed out!`);
         });
+
+      } else{
+        var eembed = new MessageEmbed()
+  .setTitle("Permission Error")
+  .setDescription("The`EMBED_LINKS` permission is required to run this command")
+  .setColor("RED")
+  .setTimestamp()
+  message.channel.send(eembed)
+      }
     }
 }

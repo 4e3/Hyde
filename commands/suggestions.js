@@ -29,7 +29,12 @@ module.exports = {
             message.channel.send(sugembed)
   
         }).catch((err)=>{
-            throw err;
+            var eembed = new Discord.MessageEmbed()
+            .setTitle("Error")
+            .setDescription("I need speaking permission in the suggestions channel to use this command.")
+          .setTimestamp()
+            message.channel.send(eembed)
+          //throw err;
         });
     }
 }

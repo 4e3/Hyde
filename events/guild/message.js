@@ -31,7 +31,7 @@ module.exports = async (Discord, client, message) => {
   .setColor("WHITE")
   .setDescription("You have been blacklisted from using Hyde.")
 
-    if(blacklisted === 1) return message.channel.send(m);
+    if(blacklisted === 1) return; //message.channel.send(m);
 
 
   const args = message.content.slice(prefix.length).split(/ +/);
@@ -40,6 +40,8 @@ module.exports = async (Discord, client, message) => {
 
   const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd)
   );
+
+if(!command) return;
 
 
   if (!cooldowns.has(command.name)) {

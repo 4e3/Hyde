@@ -48,7 +48,7 @@ const embed = new MessageEmbed()
 			)
 			.setFooter(`Created By: ${message.author.tag}`, message.author.displayAvatarURL());
 
-		return message.channel.send(embed);
+		message.channel.send(embed);
 
   }
 }
